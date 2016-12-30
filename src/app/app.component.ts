@@ -1,37 +1,27 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { Tile, tiles } from './tiles';
+import { CommentService } from './comment.service';
+import { Comment } from './comment.model';
 
 @Component({
   selector: 'app-root',
   template: `
     <h1>My App</h1>
-    <button (click)="changeOne()">Change One</button>
-    <p>Now: {{ now | date:'medium' }}</p>
-    <app-buffer [tiles]="tiles"></app-buffer>
-  `,
-  // changeDetection: ChangeDetectionStrategy.OnPush
+    <p>Current Time: {{ time | date: 'medium' }}</p>
+    <app-comment-list [comments]="comments$ | async"></app-comment-list>
+  `
 })
 export class AppComponent implements OnInit {
-  tiles: Tile[] = tiles;
-  now = new Date();
+  time = new Date();
+  comments$: Observable<Comment>;
+
+  constructor(private commentService: CommentService) {}
 
   ngOnInit() {
+    this.comments$ = this.commentService.getCommentList();
     setInterval(() => {
-      this.now = new Date();
+      this.time = new Date();
     }, 100);
-  }
-
-  changeOne() {
-    // let index = 5;
-    // let tile = this.tiles[index];
-
-    // this.tiles = [
-    //   ...this.tiles.slice(0, index),
-    //   Object.assign({}, tile, {id: 1000}),
-    //   ...this.tiles.slice(index + 1)
-    // ];
-
-    this.tiles[5].id = 5000;
   }
 }

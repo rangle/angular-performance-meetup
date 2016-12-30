@@ -1,24 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ChildComponent } from './child.component';
-import { BufferComponent } from './buffer.component';
+import { CommentListComponent } from './comment-list.component';
+import { CommentComponent } from './comment.component';
+import { CommentService } from './comment.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BufferComponent,
-    ChildComponent
-  ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    HttpModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    CommentService,
+  ],
+  declarations: [
+    AppComponent,
+    CommentListComponent,
+    CommentComponent,
+  ],
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule { }
