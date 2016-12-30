@@ -1,29 +1,53 @@
-import { Component, Input, Output, EventEmitter, OnChanges, DoCheck, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
+  OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked,
+  AfterViewInit, AfterViewChecked, OnDestroy  } from '@angular/core';
+
+import { Tile } from './tiles';
 
 @Component({
   selector: 'app-child',
   template: `
-    <button (click)="signalActivation()">{{ id }}</button>
+    <button (click)="change()">{{ tile.id }}</button>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChildComponent implements DoCheck, AfterViewInit {
-  @Input() id: number;
-  @Output() activate = new EventEmitter<void>();
-  @Output() checked = new EventEmitter<void>();
+export class ChildComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+  @Input() tile: Tile;
 
-  private isReady = false;
+  change() {
+    this.tile.id = 2000;
+  }
+
+  ngOnChanges() {
+    console.log(`${this.tile.id} ngOnChanges`);
+  }
+
+  ngOnInit() {
+    console.log(`${this.tile.id} ngOnInit`);
+  }
 
   ngDoCheck() {
-    console.log(`${this.id} was checked: ${this.isReady}`);
-    if (this.isReady) {
-      this.checked.emit();
-    }
+    console.log(`${this.tile.id} was checked`);
   }
+
+  ngAfterContentInit() {
+    console.log(`${this.tile.id} ngAfterContentInit`);
+  }
+
+  ngAfterContentChecked() {
+    console.log(`${this.tile.id} ngAfterContentChecked`);
+  }
+
   ngAfterViewInit() {
-    this.isReady = true;
+    console.log(`${this.tile.id} ngAfterViewInit`);
   }
-  signalActivation() {
-    this.activate.emit();
+
+  ngAfterViewChecked() {
+    console.log(`${this.tile.id} ngAfterViewChecked`);
+  }
+
+  ngOnDestroy() {
+    console.log(`${this.tile.id} ngOnDestroy`);
   }
 }
