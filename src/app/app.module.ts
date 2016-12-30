@@ -5,10 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ChildComponent } from './child.component';
+import { BufferComponent } from './buffer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    BufferComponent,
     ChildComponent
   ],
   imports: [
