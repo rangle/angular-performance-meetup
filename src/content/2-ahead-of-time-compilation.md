@@ -63,7 +63,7 @@ AoT goals (from the [docs](https://angular.io/docs/ts/latest/cookbook/aot-compil
 | Event              | Time (JiT) | Time (AoT) |
 | ---                |       ---: |       ---: | 
 | DOM Content Loaded |     5.44 s |     3.25 s |
-| Load               |     5.46 s |    3.27 ms |
+| Load               |     5.46 s |     3.27 s |
 | FMP                |     5.49 s | **3.30 s** |
 
 DOM Content Loaded:
