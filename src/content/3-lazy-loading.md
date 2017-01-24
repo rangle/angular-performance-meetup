@@ -42,6 +42,10 @@ Ability to load modules on demand => Useful to reduce the app startup time
 | Load               |       3.27 s |     3.25 s |
 | FMP                |       3.30 s | **3.16 s** |
 
+- Not much difference for an small app
+- Just one lazy loaded module with a couple of components
+- The impact is noticeable for big apps
+
 ---
 
 ## How to Enable Lazy Loading? (1/4)
