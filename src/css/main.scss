@@ -92,6 +92,10 @@ $selectionColor: #fff;
     margin: 20px 0;
   }
 
+  strong {
+    color: $rangleRed;
+  }
+
   h1:after, h2:after {
     content: '';
     background-color: $rangleRed;
