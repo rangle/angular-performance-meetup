@@ -8,7 +8,8 @@
 
 Ability to load modules on demand => Useful to reduce the app startup time
 
-![Lazy Loading](content/images/lazy-loading.jpg)
+![Lazy Loading](content/images/lazy-loading.svg)
+<!-- .element: style="width: 750px" -->
 
 (Compare branches `no-lazy-loading` vs `normal-lazy-loading`)
 
@@ -35,11 +36,11 @@ Ability to load modules on demand => Useful to reduce the app startup time
 
 ## Boot Time Comparison (Prod + AoT)
 
-| Event              | Time (No LL) |   Time (LL) |
-| ---                |         ---: |        ---: | 
-| DOM Content Loaded |       486 ms |      474 ms |
-| Load               |       533 ms |      526 ms |
-| FMP                |      ~550 ms | **~550 ms** |
+| Event              | Time (No LL) |  Time (LL) |
+| ---                |         ---: |       ---: | 
+| DOM Content Loaded |       3.25 s |     3.11 s |
+| Load               |       3.27 s |     3.25 s |
+| FMP                |       3.30 s | **3.16 s** |
 
 ---
 
@@ -146,9 +147,8 @@ export class AppRoutingModule {}
 
 ## Preloading
 
-As soon as the app is ready, we can download the lazy loaded module
-
-![Lazy Loading](content/images/lazy-loading-with-preloading.jpg)
+![Lazy Loading](content/images/lazy-loading-with-preloading.svg)
+<!-- .element: style="width: 750px" -->
 
 (Compare branches `normal-lazy-loading` vs `master`)
 
