@@ -6,8 +6,7 @@
 
 ## What is Lazy Loading?
 
-- Ability to load modules on demand
-- Useful to reduce the app startup time
+Ability to load modules on demand => Useful to reduce the app startup time
 
 ![Lazy Loading](content/images/lazy-loading.jpg)
 
@@ -15,22 +14,32 @@
 
 ---
 
-## Bundle Sizes Comparison 
+## Bundle Sizes Comparison (Prod + AoT)
 
-| File                 | Size (No LL) | Size (LL)   |
-| ---                  | ---          | ---         | 
-| main.bundle.js       | 102 KB       | **83.2 KB** |
-| vendor.bundle.js     | 3.7 MB       | 3.7 MB      |
-| other js files       | 270 KB       | 270 KB      |
-| **Initial Download** | 4.07 MB      | 4.05 MB     |     
-| 0.chunk.js           | -            | **26.8 KB** |
-| **Total Download**   | 4.07 MB      | 4.08 MB     |    
+| File                 | Size (No LL) |   Size (LL) |
+| ---                  |         ---: |        ---: | 
+| main.bundle.js       |      23.9 KB | **17.4 KB** |
+| vendor.bundle.js     |       158 KB |      158 KB |
+| other js files       |      49.6 KB |     49.6 KB |
+| **Initial Download** |     231.5 KB |      225 KB |     
+| 0.chunk.js           |            - |  **9.1 KB** |
+| **Total Download**   |     231.5 KB |    234.1 KB |
 
 - Webpack creates a "chunk" for every lazy loaded module
 - The file `0.chunk.js` is loaded when the user navigates to `admin`
 - The initial download size is smaller with LL
 - The total size _over time_ is bigger with LL because of Webpack async loading
 - The effect of LL start to be noticeable when the app grows
+
+---
+
+## Boot Time Comparison (Prod + AoT)
+
+| Event              | Time (No LL) |   Time (LL) |
+| ---                |         ---: |        ---: | 
+| DOM Content Loaded |       486 ms |      474 ms |
+| Load               |       533 ms |      526 ms |
+| FMP                |      ~550 ms | **~550 ms** |
 
 ---
 
