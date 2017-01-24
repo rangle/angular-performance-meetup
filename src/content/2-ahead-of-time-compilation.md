@@ -37,16 +37,16 @@ $ ng serve --prod --aot
 
 ---
 
-## JiT vs AoT in Demo App (LL + Prod)
+## JiT vs AoT in Demo App (Prod + Gzip)
 
-| File                 | Size (JiT) | Size (AoT) |
-| ---                  |       ---: |       ---: | 
-| main.bundle.js       | 5.4 KB     | 17.4 KB    |
-| vendor.bundle.js     | 254 KB     | 157 KB     |
-| other js files       | 49.5 KB    | 49.5 KB    |
-| **Initial Download** | 309 KB     | **224 KB** |     
-| 0.chunk.js           | 3 KB       | **9.1 KB** |
-| **Total Download**   | 312 KB     | 233 KB     |    
+CSS files are included in the "other js files"
+
+| File                 | Size (JiT) |   Size (AoT) |
+| ---                  |       ---: |         ---: | 
+| main.bundle.js       |     6.4 KB |  **23.9 KB** |
+| vendor.bundle.js     |     255 KB |       158 KB |
+| other js files       |    48.7 KB |      49.6 KB |
+| **Total Download**   |     306 KB | **231.5 KB** |
 
 AoT goals (from the [docs](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html)):
 
@@ -60,11 +60,11 @@ AoT goals (from the [docs](https://angular.io/docs/ts/latest/cookbook/aot-compil
 
 ## Boot Time Comparison
 
-| Event              | Time (JiT) | Time (AoT) |
-| ---                |       ---: |       ---: | 
-| DOM Content Loaded | 769 ms     | 370 ms     |
-| Load               | 888 ms     | 401 ms     |
-| FMP                | ~1000 ms   | **~500 ms** |
+| Event              | Time (JiT) |  Time (AoT) |
+| ---                |       ---: |        ---: | 
+| DOM Content Loaded |     1.11 s |      486 ms |
+| Load               |     1.12 s |      533 ms |
+| FMP                |    ~1.13 s | **~550 ms** |
 
 DOM Content Loaded:
 
