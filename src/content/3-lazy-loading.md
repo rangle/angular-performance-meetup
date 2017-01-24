@@ -138,7 +138,7 @@ export class AppRoutingModule {}
 
 - Only in the root module use the `forRoot` method of `RouterModule`
 - Never `import` a lazy loaded in this file, use a string as reference
-- The path of `loadChildren` is not relative to the file, but to the `src` folder
+- The path of `loadChildren` is not relative to the file, but to the `index.html` file
 
 (Show routes in the IDE and URL structure of the app)
 

@@ -1,6 +1,14 @@
-# Angular 2 Optimizations
+# Small computers, big performance: Optimize your Angular
 
 # Rangle.io
+
+---
+
+# Speakers
+
+David Barreto
+
+Andrew Smith
 
 ---
 
