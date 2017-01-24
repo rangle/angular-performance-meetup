@@ -60,11 +60,11 @@ AoT goals (from the [docs](https://angular.io/docs/ts/latest/cookbook/aot-compil
 
 ## Boot Time Comparison
 
-| Event              | Time (JiT) |  Time (AoT) |
-| ---                |       ---: |        ---: | 
-| DOM Content Loaded |     1.11 s |      486 ms |
-| Load               |     1.12 s |      533 ms |
-| FMP                |    ~1.13 s | **~550 ms** |
+| Event              | Time (JiT) | Time (AoT) |
+| ---                |       ---: |       ---: | 
+| DOM Content Loaded |     5.44 s |     3.25 s |
+| Load               |     5.46 s |    3.27 ms |
+| FMP                |     5.49 s | **3.30 s** |
 
 DOM Content Loaded:
 
